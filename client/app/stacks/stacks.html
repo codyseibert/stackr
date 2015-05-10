@@ -14,8 +14,30 @@
 
 <br>
 
-<div class="stack" ng-repeat="stack in stacks" ng-click="navigateToStack(stack.id)">
-    <div class="title">{{stack.title}}</div>
-    <div class="description">{{stack.description}}</div>
-    <div class="icon-book"></div>
+<div class="stack" ng-repeat="stack in stacks">
+    <div class="title">
+      {{stack.title}}
+    </div>
+
+    <div class="description">
+      {{stack.description}}
+    </div>
+
+    <div ng-circles value="50" width="20" class="progress"></div>
+
+    <div class="bottom">
+
+      <div class="brain half" ng-click="navigateToQuizStack(stack.id)">
+        <div class="icon"></div>
+        <div>Quiz</div>
+      </div>
+
+      <div class="edit half" ng-click="navigateToEditStack(stack.id)">
+        <div class="icon"></div>
+        <div>Edit</div>
+      </div>
+
+    </div>
+
+
 </div>

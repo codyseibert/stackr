@@ -15,10 +15,16 @@ angular.module('stackrApp')
                     url: "api/cards/" + pCardId
                 });
             },
-            createCard: function (pCard) {
+            markAsCorrect: function (pCardId) {
+                return $http({
+                    method: "GET",
+                    url: "api/cards/" + pCardId + "/correct"
+                });
+            },
+            createCard: function (pStackId, pCard) {
                 return $http({
                     method: "POST",
-                    url: "api/cards",
+                    url: "api/stacks/" + pStackId + "/cards",
                     data: pCard
                 });
             },

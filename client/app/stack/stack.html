@@ -1,3 +1,29 @@
 {{stack.title}}
 {{stack.description}}
 <div ng-click="deleteStack()">Delete This Stack</div>
+
+<button id="create-card-btn" ng-click="showCreateCard = !showCreateCard">
+  Create Card
+</button>
+
+<div id="create-card" ng-show="showCreateCard">
+  <input ng-model="card.front" placeholder="front"></input>
+  <br>
+  <input ng-model="card.back" placeholder="back"></input>
+  <br>
+  <button ng-click="createCard()">
+    Create
+  </button>
+</div>
+
+<div ng-repeat="card in cards" class="card" ng-class="{front: !card.hideFront, back: card.hideFront}" ng-click="card.hideFront = !card.hideFront">
+    <div ng-hide="card.hideFront">
+      {{card.front}}
+    </div>
+    <div ng-show="card.hideFront">
+      {{card.back}}
+    </div>
+    <div class="delete" ng-click="deleteCard(card); $event.stopPropagation();">
+      X
+    </div>
+</div>

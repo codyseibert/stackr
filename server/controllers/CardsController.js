@@ -13,15 +13,26 @@ var CardsController = function () {
     };
 
     this.getCards = function (pReq, pRes) {
-        var callback;
+        var callback,
+            stackId;
+        stackId = pReq.params.stackId;
         callback = theControllerHelper.createDefaultCallback(pRes);
-        theCardsDao.getCards(callback);
+        theCardsDao.getCards(stackId, callback);
     };
 
     this.createCard = function (pReq, pRes) {
-        var callback;
+        var callback,
+            stackId;
+        stackId = pReq.params.stackId;
+        pReq.body.stack_id = stackId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theCardsDao.createCard(pReq.body, callback);
+    };
+
+    this.markAsCorrect = function (pReq, pRes) {
+        var callback;
+        callback = theControllerHelper.createDefaultCallback(pRes);
+        theCardsDao.markAsCorrect(pReq.user.id, pReq.params.cardId, callback);
     };
 
     this.updateCard = function (pReq, pRes) {

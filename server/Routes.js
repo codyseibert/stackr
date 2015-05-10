@@ -50,9 +50,20 @@ var Routes = function (app) {
         isStackOwner,
         StacksController.deleteStack);
 
+    app.post('/api/stacks/:stackId/cards',
+        InjectAccountId,
+        isStackOwner,
+        CardsController.createCard);
+
     // cards
     app.get('/api/stacks/:stackId/cards',
+        InjectAccountId,
+        isStackOwner,
         CardsController.getCards);
+
+    app.get('/api/cards/:cardId/correct',
+        InjectAccountId,
+        CardsController.markAsCorrect);
 
     app.get('/api/cards',
         CardsController.getCards);
@@ -61,6 +72,8 @@ var Routes = function (app) {
         CardsController.getCard);
 
     app.post('/api/cards',
+        InjectAccountId,
+        isStackOwner,
         CardsController.createCard);
 
     app.post('/api/cards/:cardId',

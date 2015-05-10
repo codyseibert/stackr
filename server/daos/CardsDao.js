@@ -14,10 +14,11 @@ var CardsDao = function () {
         );
     };
 
-    this.getCards = function (pCallback) {
+    this.getCards = function (pStackId, pCallback) {
         theDaoHelper.executeQuery(
-            "SELECT id, stack_id, front, back FROM cards",
-            [],
+            "SELECT c.id, c.stack_id, c.front, c.back, COALESCE(uc.correct, 0) AS correct, uc.date FROM cards c " +
+            "LEFT JOIN users_cards uc ON uc.card_id = c.id WHERE c.stack_id = ?",
+            [pStackId],
             theDaoHelper.MULTIPLE,
             pCallback
         );
@@ -45,6 +46,17 @@ var CardsDao = function () {
         theDaoHelper.executeQuery(
             "DELETE FROM cards WHERE id = ?",
             [pCardId],
+            theDaoHelper.DELETE,
+            pCallback
+        );
+    };
+
+    this.markAsCorrect = function (pUserId, pCardId, pCallback) {
+        theDaoHelper.executeQuery(
+            "INSERT INTO users_cards (user_id, card_id, correct, date) VALUES(?, ?, 1, NOW()) " +
+            "ON DUPLICATE KEY " +
+            "UPDATE correct = correct + 1, date = NOW()",
+            [pUserId, pCardId],
             theDaoHelper.DELETE,
             pCallback
         );

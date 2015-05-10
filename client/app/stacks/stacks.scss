@@ -1,14 +1,57 @@
 .stack {
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 250px;
   background-color: red;
   border-radius: 20px;
   display: inline-block;
   position: relative;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
 }
 
 .icon-book {
   position: absolute;
   top: 0px;
   left: 0px;
+  font-size: 200px;
+}
+
+.title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.progress{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+.brain .icon {
+    background-image: url('../assets/images/brain.png');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+
+.edit .icon{
+    background-image: url('../assets/images/edit.png');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+
+.half {
+    width: 48%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
 }

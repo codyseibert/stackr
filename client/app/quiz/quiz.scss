@@ -1,0 +1,31 @@
+
+.current-card {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.front {
+  background-color: blue;
+}
+
+.back {
+  background-color: orange;
+}
+
+.correct .icon {
+    background-image: url('../assets/images/check.png');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+
+.wrong .icon{
+    background-image: url('../assets/images/x.png');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}

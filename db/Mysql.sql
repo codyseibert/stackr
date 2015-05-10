@@ -46,13 +46,12 @@ CREATE TABLE cards
 
 CREATE TABLE users_cards
 (
-    id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
     card_id INT NOT NULL,
     correct INT NOT NULL,
     date DATETIME NOT NULL,
 
-    PRIMARY KEY (id),
+    PRIMARY KEY (user_id, card_id),
 
     FOREIGN KEY (user_id)
         REFERENCES users(id)

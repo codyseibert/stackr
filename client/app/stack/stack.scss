@@ -1,14 +1,16 @@
-.stack {
-  width: 200px;
-  height: 200px;
-  background-color: red;
-  border-radius: 20px;
-  display: inline-block;
-  position: relative;
+
+
+.front {
+  background-color: blue;
 }
 
-.icon-book {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+.back {
+  background-color: orange;
+}
+
+.delete {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }

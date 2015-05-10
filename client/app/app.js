@@ -4,7 +4,8 @@ angular.module('stackrApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.router'
+  'ui.router',
+  'angular-circles'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -16,8 +17,12 @@ angular.module('stackrApp', [
 
     LoginService.setup();
 
-    $rootScope.navigateToStack = function (pStackId) {
+    $rootScope.navigateToEditStack = function (pStackId) {
       $state.go('stack', {id: pStackId});
+    };
+
+    $rootScope.navigateToQuizStack = function (pStackId) {
+      $state.go('quiz', {id: pStackId});
     };
 
   });
