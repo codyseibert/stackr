@@ -1,5 +1,6 @@
 
 .current-card {
+  text-align: center;
   display: inline-block;
   width: 300px;
   height: 300px;
@@ -28,4 +29,8 @@
     width: 80px;
     height: 80px;
     display: inline-block;
+}
+
+.text-center{
+    text-align: center;
 }

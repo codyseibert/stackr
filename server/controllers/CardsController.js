@@ -30,7 +30,8 @@ var CardsController = function () {
     };
 
     this.markAsCorrect = function (pReq, pRes) {
-        var callback;
+        var callback,
+            cardId;
         callback = theControllerHelper.createDefaultCallback(pRes);
         theCardsDao.markAsCorrect(pReq.user.id, pReq.params.cardId, callback);
     };

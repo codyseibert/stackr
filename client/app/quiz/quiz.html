@@ -1,8 +1,8 @@
 <!-- {{stack.title}}
 {{stack.description}} -->
 
-<div class="current-card" ng-class="{front: !card.hideFront, back: card.hideFront}" ng-click="card.hideFront = !card.hideFront">
-
+<div class="text-center">
+  <div class="current-card" ng-class="{front: !card.hideFront, back: card.hideFront}" ng-click="card.hideFront = !card.hideFront">
     <div ng-hide="card.hideFront">
       {{card.front}}
     </div>
@@ -10,14 +10,15 @@
     <div ng-show="card.hideFront">
       {{card.back}}
     </div>
+  </div>
+</div>
 
-    <div class="correct half" ng-click="markAsCorrect(); $event.stopPropagation();">
-      <div class="icon"></div>
-      <div>Mark as Known</div>
-    </div>
+<div class="correct half" ng-click="markAsCorrect(); $event.stopPropagation();">
+  <div class="icon"></div>
+  <div>Mark as Known</div>
+</div>
 
-    <div class="wrong half" ng-click="nextCard(); $event.stopPropagation();">
-      <div class="icon"></div>
-      <div>Mark as Unknown</div>
-    </div>
+<div class="wrong half" ng-click="nextCard(); $event.stopPropagation();">
+  <div class="icon"></div>
+  <div>Mark as Unknown</div>
 </div>
