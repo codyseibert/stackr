@@ -2,9 +2,16 @@ var UsersController = require ('./controllers/UsersController');
 var StacksController = require ('./controllers/StacksController');
 var CardsController = require ('./controllers/CardsController');
 var UsersCardsController = require ('./controllers/UsersCardsController');
+var LoginController = require ('./controllers/LoginController');
+
+var InjectAccountId = require ('./middleware/InjectAccountId');
 
 var Routes = function (app) {
     'use strict';
+
+    // login
+    app.post('/api/login',
+        LoginController.login);
 
     // users
     app.get('/api/users',
@@ -24,12 +31,14 @@ var Routes = function (app) {
 
     // stacks
     app.get('/api/stacks',
+        InjectAccountId,
         StacksController.getStacks);
 
     app.get('/api/stacks/:stackId',
         StacksController.getStack);
 
     app.post('/api/stacks',
+        InjectAccountId,
         StacksController.createStack);
 
     app.post('/api/stacks/:stackId',

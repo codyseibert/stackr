@@ -11,4 +11,9 @@ angular.module('stackrApp', [
       .otherwise('/');
 
     // $locationProvider.html5Mode(true);
+  })
+  .run(function (LoginService) {
+
+    LoginService.setup();
+    
   });

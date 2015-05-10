@@ -1,3 +1,19 @@
+<button id="show--create-stack-btn" ng-click="showCreateStack = !showCreateStack">
+  New Stack
+</button>
+
+<div id="create-stack" ng-show="showCreateStack">
+  <input ng-model="stack.title" placeholder="title"></input>
+  <br>
+  <input ng-model="stack.description" placeholder="description"></input>
+  <br>
+  <button ng-click="createStack()">
+    Create
+  </button>
+</div>
+
+<br>
+
 <div class="stack" ng-repeat="stack in stacks">
     <div class="title">{{stack.title}}</div>
     <div class="description">{{stack.description}}</div>

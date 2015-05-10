@@ -21,6 +21,7 @@ var StacksController = function () {
     this.createStack = function (pReq, pRes) {
         var callback;
         callback = theControllerHelper.createDefaultCallback(pRes);
+        pReq.body.user_id = pReq.user.id;
         theStacksDao.createStack(pReq.body, callback);
     };
 

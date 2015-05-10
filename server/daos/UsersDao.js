@@ -14,6 +14,15 @@ var UsersDao = function () {
         );
     };
 
+    this.validateCreditials = function (pEmail, pPassword, pCallback) {
+        theDaoHelper.executeQuery(
+            "SELECT id, email, password FROM users WHERE email = ? AND password = ?",
+            [pEmail, pPassword],
+            theDaoHelper.SINGLE,
+            pCallback
+        );
+    };
+
     this.getUsers = function (pCallback) {
         theDaoHelper.executeQuery(
             "SELECT id, email, password FROM users",
