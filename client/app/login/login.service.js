@@ -29,6 +29,11 @@ angular.module('stackrApp')
                   .success(function () {
                       isLoggedIn = true;
                   });
+            },
+            logout: function () {
+                isLoggedIn = false;
+                delete $http.defaults.headers.common.Authorization;
+                delete $cookies.token;
             }
         };
     });

@@ -12,8 +12,12 @@ angular.module('stackrApp', [
 
     // $locationProvider.html5Mode(true);
   })
-  .run(function (LoginService) {
+  .run(function (LoginService, $rootScope, $state) {
 
     LoginService.setup();
-    
+
+    $rootScope.navigateToStack = function (pStackId) {
+      $state.go('stack', {id: pStackId});
+    };
+
   });

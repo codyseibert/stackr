@@ -14,7 +14,7 @@
 
 <br>
 
-<div class="stack" ng-repeat="stack in stacks">
+<div class="stack" ng-repeat="stack in stacks" ng-click="navigateToStack(stack.id)">
     <div class="title">{{stack.title}}</div>
     <div class="description">{{stack.description}}</div>
     <div class="icon-book"></div>

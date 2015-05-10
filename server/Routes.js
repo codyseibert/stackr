@@ -5,6 +5,7 @@ var UsersCardsController = require ('./controllers/UsersCardsController');
 var LoginController = require ('./controllers/LoginController');
 
 var InjectAccountId = require ('./middleware/InjectAccountId');
+var isStackOwner = require ('./middleware/isStackOwner');
 
 var Routes = function (app) {
     'use strict';
@@ -45,9 +46,14 @@ var Routes = function (app) {
         StacksController.updateStack);
 
     app.delete('/api/stacks/:stackId',
+        InjectAccountId,
+        isStackOwner,
         StacksController.deleteStack);
 
     // cards
+    app.get('/api/stacks/:stackId/cards',
+        CardsController.getCards);
+
     app.get('/api/cards',
         CardsController.getCards);
 
